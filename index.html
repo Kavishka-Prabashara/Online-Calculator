@@ -20,10 +20,25 @@
         .button {
             height: 90%;
             width: 90%;
-            background-color: black;
-            border: black 2px ;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: rgba(0, 0, 0, 0.5) 2px ;
             color: white;
+            border-radius: 30px;
+            font-family: "Samsung Sans",serif;
+            font-size: 30px;
         }
+.button:hover {
+    background-color: #ffa500;
+    color: #ffffff;
+}
+
+
+.button:active {
+    background-color: #3f3f3f;
+    border-color: #ffa500;
+    color: #ffffff;
+    transform: translateY(1px);
+}
 
 /*--------------------------------<calculator area>--------------------------------*/
         section {
@@ -50,11 +65,13 @@
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(6, 1fr);
             align-items: center;
-            background: #0f0c29;
-            background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            background: rgba(15, 12, 41, 0.5);
+            background: -webkit-linear-gradient(to right, rgba(36, 36, 62, 0.5), rgba(48, 43, 99, 0.5), rgba(15, 12, 41, 0.05));
+            background: linear-gradient(to right, rgba(36, 36, 62, 0.5), rgba(48, 43, 99, 0.5), rgba(15, 12, 41, 0.5));
             gap: 5px;
-            border: 1px solid black;
+            border-radius: 30px;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow */
         }
 
 
