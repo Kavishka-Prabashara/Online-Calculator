@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>Mathe-Matickerz - Online Simple Calculator</title>
     <link rel="stylesheet" href="assets/style/normalize.css">
+
+<!-------------------------------------------------<style>--------------------------------------------------------->
+
     <style>
 
+/*--------------------------------<button>--------------------------------*/
         .button {
             height: 90%;
             width: 90%;
@@ -14,8 +18,7 @@
             color: white;
         }
 
-
-
+/*--------------------------------<calculator area>--------------------------------*/
         section {
             height: 80%;
             width: 80%;
@@ -27,11 +30,14 @@
             position: absolute;
         }
 
+/*--------------------------------<text area>--------------------------------*/
         textarea {
             width: 400px;
             height: 100px;
 
         }
+
+/*--------------------------------<cal structure grid>--------------------------------*/
         #calculator_area {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -41,6 +47,7 @@
             gap: 5px;
             border: 1px solid black;
         }
+
 
         #calculator_area > * {
             border: 1px solid black;
@@ -68,6 +75,8 @@
 
 
     </style>
+
+<!-------------------------------------------------</>style>--------------------------------------------------------->
 
 </head>
 <body>
