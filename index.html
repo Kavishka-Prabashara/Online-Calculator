@@ -10,12 +10,15 @@
     <style>
 
 /*--------------------------------<body>--------------------------------*/
-        /*body {
-            background: #00F260;  !* fallback for old browsers *!
-            background: -webkit-linear-gradient(to right, #000000, rgba(242, 0, 194, 0.5));  !* Chrome 10-25, Safari 5.1-6 *!
-            background: linear-gradient(to right, #010007, #9700ff); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!
+/*        body {
+            background: #00F260;
+            background: -webkit-linear-gradient(to right, #000000, rgba(242, 0, 194, 0.5));
+            background: linear-gradient(to right, #010007, #9700ff);
 
         }*/
+        body {
+            background-color: #424242;
+        }
 /*--------------------------------<nav-bar>--------------------------------*/
         #navBar {
             font-size: 40px;
@@ -53,7 +56,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             border: white 2px ;
             color: white;
-            border-radius: 30px;
+            /*border-radius: 30px;*/
             font-family: "Samsung Sans",serif;
             font-size: 30px;
             font-weight: bolder;
@@ -74,8 +77,8 @@
 
 /*--------------------------------<calculator area>--------------------------------*/
         section {
-            height: 80%;
-            width: 80%;
+            height: 85%;
+            width: 400px;
             top: 0;
             bottom: 0;
             left: 0;
@@ -88,7 +91,7 @@
         textarea {
             width: 350px;
             height: 100px;
-            border-radius: 30px;
+            /*border-radius: 30px;*/
             background-color: rgba(255, 255, 255, 0.5);
             font-weight: bolder;
             font-size: 50px;
@@ -106,7 +109,7 @@
             background: -webkit-linear-gradient(to right, rgba(36, 36, 62, 0.5), rgba(48, 43, 99, 0.5), rgba(15, 12, 41, 0.05));
             background: linear-gradient(to right, rgba(36, 36, 62, 0.5), rgba(48, 43, 99, 0.5), rgba(15, 12, 41, 0.5));
             gap: 5px;
-            border-radius: 30px;
+            /*border-radius: 30px;*/
             transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition */
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow */
         }
@@ -135,7 +138,9 @@
             grid-row: span 5;
             grid-column: 4;
         }
-
+        #additional ,#all_clear, #minus , #divides , #multiply , #dot , #equal {
+            background-color: #ffa500;
+        }
     </style>
 
 <!-------------------------------------------------</>style>--------------------------------------------------------->
@@ -143,6 +148,7 @@
 </head>
 
 <body>
+<div class="img-background-horizontal"></div>
 
     <header>
         <nav id="navBar">
@@ -158,50 +164,51 @@
 <!--------------------------<first_row>------------------------------->
             <!--<div id="first_row">-->
                 <label>
-                    <textarea id="cal_screen"></textarea>
+                    <textarea id="screen"></textarea>
+                    <!--<input type="text" id="screen" readonly>-->
                 </label>
             <!--</div>-->
 <!--------------------------</first_row>------------------------------->
 
 <!--------------------------<second_row>------------------------------->
             <!--<div id="second_row">-->
-                <button class="button" id="additional">+</button>
-                <button class="button" id="minus">-</button>
-                <button class="button" id="divides">/</button>
-                <button class="button" id="multiply">*</button>
+                <button class="button" id="additional" onclick="appendToDisplay('+')">+</button>
+                <button class="button" id="minus" onclick="appendToDisplay('-')">-</button>
+                <button class="button" id="divides" onclick="appendToDisplay('/')">/</button>
+                <button class="button" id="multiply" onclick="appendToDisplay('*')">*</button>
             <!--</div>-->
 <!--------------------------</>second_row>------------------------------->
 
 <!--------------------------<third_row>------------------------------->
             <!--<div id="third_row">-->
-                <button class="button" id="7">7</button>
-                <button class="button" id="8">8</button>
-                <button class="button" id="9">9</button>
-                <button class="button" id="all_clear">C</button>
+                <button class="button" id="7" onclick="appendToDisplay('7')">7</button>
+                <button class="button" id="8" onclick="appendToDisplay('8')">8</button>
+                <button class="button" id="9" onclick="appendToDisplay('9')">9</button>
+                <button class="button" id="all_clear" onclick="clearDisplay()">C</button>
             <!--</div>-->
 <!--------------------------</>third_row>------------------------------->
 
 <!--------------------------<forth_row>------------------------------->
             <!--<div id="forth_row">-->
-                <button class="button" id="4">4</button>
-                <button class="button" id="5">5</button>
-                <button class="button" id="6">6</button>
-                <button class="button" id="dot">.</button>
+                <button class="button" id="4" onclick="appendToDisplay('4')">4</button>
+                <button class="button" id="5" onclick="appendToDisplay('5')">5</button>
+                <button class="button" id="6" onclick="appendToDisplay('6')">6</button>
+                <button class="button" id="dot" onclick="appendToDisplay('.')">.</button>
             <!--</div>-->
 <!--------------------------<forth_row>------------------------------->
 
 <!--------------------------<five_row>------------------------------->
             <!--<div id="fifth_row">-->
-                <button class="button" id="1">1</button>
-                <button class="button" id="2">2</button>
-                <button class="button" id="3">3</button>
-                <button class="button" id="equal">=</button>
+                <button class="button" id="1" onclick="appendToDisplay('1')">1</button>
+                <button class="button" id="2" onclick="appendToDisplay('2')">2</button>
+                <button class="button" id="3" onclick="appendToDisplay('3')">3</button>
+                <button class="button" id="equal" onclick="calculate()">=</button>
             <!--</div>-->
 <!--------------------------</>five_row>------------------------------->
 
 <!--------------------------<six_row>------------------------------->
             <!--<div id="sixth_row">-->
-                <button class="button" id="0">0</button>
+                <button class="button" id="0" onclick="appendToDisplay('0')">0</button>
             <!--</div>-->
 <!--------------------------<six_row>------------------------------->
 
