@@ -217,7 +217,16 @@
     <script src="assets/lib/jquery.js"></script>
 
     <script>
-
+        let screen = document.getElementById('screen');
+        let clearDisplay = () => screen.value = '';
+        let appendToDisplay = (value) => screen.value += value;
+        let calculate = () => {
+            try {
+                screen.value = eval(screen.value);
+            } catch (error) {
+                screen.value = 'Error';
+            }
+        };
     </script>
 </body>
 </html>
